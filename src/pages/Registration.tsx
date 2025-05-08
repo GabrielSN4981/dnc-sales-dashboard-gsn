@@ -1,21 +1,32 @@
-import styled from "styled-components";
-
-const RegistrationArea = styled.div`
-  background: #666;
-`;
-
-const RegistrationImage = styled.div`
-  background-image: url(/login-image.svg);
-  background-size: cover;
-  height: 100vh;
-  width: 50vw;
-`;
+import { Box, Container, Grid } from "@mui/material";
+import { BannerImage } from "@/components";
 
 function Registration() {
   return (
     <>
-      <RegistrationArea>REGISTRATION</RegistrationArea>
-      <RegistrationImage />
+      <Box sx={{ overflowX: "hidden" }}>
+        <Grid container spacing={2}>
+          <Grid
+            size={6}
+            item
+            xs={12}
+            sm={6}
+            sx={{ alignItems: "center", display: "flex", height: "100vh" }}
+          >
+            <Container maxWidth="sm" >
+              <h1>REGISTRATION</h1>
+            </Container>
+          </Grid>
+          <Grid
+            size={6}
+            item
+            sm={6}
+            sx={{ display: { xs: "none", sm: "block" } }}
+          >
+            <BannerImage />
+          </Grid>
+        </Grid>
+      </Box>
     </>
   );
 }
