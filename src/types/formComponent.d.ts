@@ -1,7 +1,7 @@
 import { Form } from "react-router-dom";
 
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-type ButtonPropos = React.ButtonHTMLAttributes<HTMLButtonElement>;
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type MessageProps = {
   msg: string;
@@ -14,4 +14,4 @@ export interface FormComponentProps {
   message?: MessageProps;
 }
 
-export default FormComponentProps
+export default FormComponentProps;

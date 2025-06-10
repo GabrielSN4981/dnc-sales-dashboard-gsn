@@ -19,4 +19,4 @@ function FormComponent(props: FormComponentProps) {
   );
 }
 
-export default FormComponent
+export default FormComponent;
