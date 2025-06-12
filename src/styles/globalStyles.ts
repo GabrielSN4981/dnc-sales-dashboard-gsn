@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle<{ theme?: DefaultTheme }>`
         color: ${(props) => props.theme.appColor};
     }
 
-    h1, h2, p, ul, li {
+    h1, h2, p, ul, li, figure {
         margin: 0;
         padding: 0;
     }
