@@ -1,4 +1,5 @@
 import { Box, Container, Grid } from "@mui/material";
+
 import {
   BannerImage,
   FormComponent,
@@ -7,6 +8,9 @@ import {
   Logo,
 } from "@/components";
 import { pxToRem } from "@/utils";
+
+
+
 
 function Login() {
   return (
@@ -46,6 +50,8 @@ function Login() {
                   type: "success",
                 }}
               />
+
+              <h1>LOGIN</h1>
             </Container>
           </Grid>
           <Grid
