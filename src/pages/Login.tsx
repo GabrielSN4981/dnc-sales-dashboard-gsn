@@ -1,20 +1,28 @@
+<<<<<<< Updated upstream
+import styled from "styled-components";
+
+const LoginArea = styled.div`
+  background: #666;
+`;
+
+const LoginImage = styled.div`
+  background-image: url(/login-image.svg);
+  background-size: cover;
+  height: 100vh;
+  width: 50vw;
+`;
+=======
 import { Box, Container, Grid } from "@mui/material";
-
-import {
-  BannerImage,
-  FormComponent,
-  StyledH1,
-  StyledP,
-  Logo,
-} from "@/components";
-import { pxToRem } from "@/utils";
-
-
-
+import { BannerImage, FormComponent } from "@/components";
+>>>>>>> Stashed changes
 
 function Login() {
   return (
     <>
+<<<<<<< Updated upstream
+      <LoginArea>LOGIN</LoginArea>
+      <LoginImage />
+=======
       <Box sx={{ overflowX: "hidden" }}>
         <Grid container spacing={2}>
           <Grid
@@ -25,33 +33,20 @@ function Login() {
             sx={{ alignItems: "center", display: "flex", height: "100vh" }}
           >
             <Container maxWidth="sm">
-              <Box sx={{ marginBottom: pxToRem(24) }}>
-                <Logo height={41} width={100} />
-              </Box>
-              <Box sx={{ marginBottom: pxToRem(24) }}>
-                <StyledH1>Bem-vindo</StyledH1>
-                <StyledP>Digite sua senha e email para logar</StyledP>
-              </Box>
+              <h1>LOGIN</h1>
               <FormComponent
                 inputs={[
-                  { type: "email", placeholder: "Email", disabled: true },
+                  { type: "email", placeholder: "Email" },
                   { type: "password", placeholder: "Senha" },
                 ]}
                 buttons={[
-                  {
-                    className: "primary",
-                    type: "submit",
-                    children: "Login",
-                    /* disabled: true, */ // not working yet
-                  },
+                  { className: "primary", type: "submit", children: "Login" },
                 ]}
                 message={{
                   msg: "SUCESSO!!!",
                   type: "success",
                 }}
               />
-
-              <h1>LOGIN</h1>
             </Container>
           </Grid>
           <Grid
@@ -64,6 +59,7 @@ function Login() {
           </Grid>
         </Grid>
       </Box>
+>>>>>>> Stashed changes
     </>
   );
 }

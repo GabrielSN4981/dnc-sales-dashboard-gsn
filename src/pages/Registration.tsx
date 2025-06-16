@@ -1,17 +1,28 @@
+<<<<<<< Updated upstream
+import styled from "styled-components";
+
+const RegistrationArea = styled.div`
+  background: #666;
+`;
+
+const RegistrationImage = styled.div`
+  background-image: url(/login-image.svg);
+  background-size: cover;
+  height: 100vh;
+  width: 50vw;
+`;
+=======
 import { Box, Container, Grid } from "@mui/material";
-import {
-  BannerImage,
-  FormComponent,
-  StyledH1,
-  StyledP,
-  StyledUl,
-  Logo,
-} from "@/components";
-import { pxToRem } from "@/utils";
+import { BannerImage, FormComponent } from "@/components";
+>>>>>>> Stashed changes
 
 function Registration() {
   return (
     <>
+<<<<<<< Updated upstream
+      <RegistrationArea>REGISTRATION</RegistrationArea>
+      <RegistrationImage />
+=======
       <Box sx={{ overflowX: "hidden" }}>
         <Grid container spacing={2}>
           <Grid
@@ -22,19 +33,7 @@ function Registration() {
             sx={{ alignItems: "center", display: "flex", height: "100vh" }}
           >
             <Container maxWidth="sm">
-              <Box sx={{ marginBottom: pxToRem(24) }}>
-                <Logo height={41} width={100} />
-              </Box>
-              <Box sx={{ marginBottom: pxToRem(24) }}>
-                <StyledH1>Faça seu cadastro</StyledH1>
-                <StyledP>Primeiro, diga-nos quem você é</StyledP>
-                <StyledUl>
-                  <li>Entre 8 e 16 caracteres;</li>
-                  <li>Pelo menos uma letra maiúscula;</li>
-                  <li>Pelo menos um caractere especial;</li>
-                  <li>Pelo menos um número</li>
-                </StyledUl>
-              </Box>
+              <h1>REGISTRATION</h1>
               <FormComponent
                 inputs={[
                   { type: "email", placeholder: "Email" },
@@ -49,9 +48,6 @@ function Registration() {
                 }}
               />
             </Container>
-            <Container maxWidth="sm">
-              <h1>REGISTRATION</h1>
-            </Container>
           </Grid>
           <Grid
             size={6}
@@ -63,6 +59,7 @@ function Registration() {
           </Grid>
         </Grid>
       </Box>
+>>>>>>> Stashed changes
     </>
   );
 }
