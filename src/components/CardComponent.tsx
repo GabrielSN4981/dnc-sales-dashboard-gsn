@@ -25,7 +25,7 @@ export const CardComponent = styled.div`
   }
 
   a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
   }
 `;
