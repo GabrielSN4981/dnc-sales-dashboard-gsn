@@ -19,7 +19,7 @@ export const useGet = <T>(endpoint: string, config?: AxiosRequestConfig) => {
         url: endpoint,
         method: "GET",
         headers: {
-          "Authorization": `Bearer ${Cookies.get("Authorization")}`,
+          Authorization: `Bearer ${Cookies.get("Authorization")}`,
           ...config?.headers,
         },
         ...config,
@@ -39,7 +39,7 @@ export const useGet = <T>(endpoint: string, config?: AxiosRequestConfig) => {
   return { data, loading, error, getData };
 };
 
-export const usePost = <T, P>(endpoint: string) => {
+export const usePost = <T, P>(endpoint: string, withAuth?: boolean) => {
   // RESPOSTA
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(false);
@@ -51,11 +51,52 @@ export const usePost = <T, P>(endpoint: string) => {
     setError(null);
 
     try {
+      const headers = withAuth
+        ? {
+            Authorization: `Bearer ${Cookies.get("Authorization")}`,
+            "Content-Type": "application/json",
+            ...config?.headers,
+          }
+        : {
+            "Content-Type": "application/json",
+            ...config?.headers,
+          };
       const response = await axiosInstance({
         url: endpoint,
         method: "POST",
         data: postData,
+        headers: headers,
+        ...config,
+      });
+      setData(response.data);
+    } catch (e: any) {
+      setError(e.response.status ?? 500);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { data, loading, error, postData };
+};
+
+export const usePut = <T>(endpoint: string) => {
+  // RESPOSTA
+  const [data, setData] = useState<T | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<number | null>(null);
+  // ENVIO
+  const putData = async (putData: T, config?: AxiosRequestConfig) => {
+    setData(null);
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await axiosInstance({
+        url: endpoint,
+        method: "PUT",
+        data: putData,
         headers: {
+          Authorization: `Bearer ${Cookies.get("Authorization")}`,
           "Content-Type": "application/json",
           ...config?.headers,
         },
@@ -69,5 +110,35 @@ export const usePost = <T, P>(endpoint: string) => {
     }
   };
 
-  return { data, loading, error, postData };
+  return { data, loading, error, putData };
+};
+
+export const useDelete = <T>(endpoint: string) => {
+  // RESPOSTA
+  const [data, setData] = useState<T | null>(null);
+  const [loading, setLoading] = useState(false);
+  // ENVIO
+  const deleteData = async (config?: AxiosRequestConfig) => {
+    setData(null);
+    setLoading(true);
+
+    try {
+      const response = await axiosInstance({
+        url: endpoint,
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${Cookies.get("Authorization")}`,
+          ...config?.headers,
+        },
+        ...config,
+      });
+      setData(response.data);
+    } catch (e: any) {
+      throw e.response.status ?? 500;
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { data, loading, deleteData };
 };

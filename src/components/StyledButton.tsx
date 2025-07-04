@@ -22,13 +22,12 @@ export const StyledButton = styled.button<ButtonProps>`
     }
   }
 
-  &.disabled {
+  &:disabled {
     background-color: ${(props) => props.theme.buttons.disabled};
     color: ${(props) => props.theme.buttons.disabledColor};
     cursor: not-allowed;
     &:hover {
-      background-color: ${(props) => props.theme.buttons.disabled};
-      color: ${(props) => props.theme.buttons.disabledColor};
+      color: ${(props) => props.theme.buttons.disabled};
     }
   }
 
