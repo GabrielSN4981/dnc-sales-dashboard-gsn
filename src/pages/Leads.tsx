@@ -114,7 +114,9 @@ function Leads() {
             >
               {!leadsError && !leadsLoading && (
                 <>
-                  <StyledH2 className="mb-1">Meus leads</StyledH2>
+                  <StyledH2 className="mb-1" id="leads-title">
+                    Meus leads
+                  </StyledH2>
                   {leadsData?.length ? (
                     <CustomTable
                       headers={["Nome", "Email", "Telefone", ""]}
@@ -132,7 +134,7 @@ function Leads() {
                       ])}
                     />
                   ) : (
-                    <StyledSpan>Sem leadas cadastrados</StyledSpan>
+                    <StyledSpan>Sem leads cadastrados</StyledSpan>
                   )}
                 </>
               )}

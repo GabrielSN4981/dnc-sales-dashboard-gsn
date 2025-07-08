@@ -10,7 +10,9 @@ export const useFormValidation = (inputs: InputProps[]) => {
   useEffect(() => {
     const allFieldsValid = inputs.every((input, index) => {
       const value = formValues[index];
+      console.log(`Validating input ${index}:`, input.type, value);
       if (input.required && !value) {
+        console.log(`Field ${index} is required and empty`);
         return false;
       }
       if (input.type === "email") {
@@ -31,6 +33,7 @@ export const useFormValidation = (inputs: InputProps[]) => {
       }
       return true;
     });
+    console.log("Form is valid:", allFieldsValid);
     setFormValid(allFieldsValid);
   }, [formValues, inputs]);
 
